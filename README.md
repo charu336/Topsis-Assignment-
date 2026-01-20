@@ -1,35 +1,44 @@
-# Topsis-Assignment
-# TOPSIS Assignment (Python Package + Colab)
+# TOPSIS-Charu-102303113
 
-## Objective
-To rank alternatives using TOPSIS based on multiple criteria.
+A Python package to implement **TOPSIS (Technique for Order Preference by Similarity to Ideal Solution)** for ranking alternatives based on multiple criteria.
 
-## Methodology
-1. Normalize the decision matrix  
-2. Multiply by weights  
-3. Determine ideal best and ideal worst using impacts  
-4. Calculate distance from ideal best and worst  
-5. Compute TOPSIS score  
-6. Rank alternatives (Rank 1 = best)
+This project is developed as part of an academic assignment and supports:
+- CSV input dataset
+- User-defined weights and impacts
+- Output CSV generation with **Topsis Score** and **Rank**
 
-## Input
-CSV file with:
-- 1st column: Alternative name (non-numeric)
-- Remaining columns: Numeric criteria values
+---
 
-## Package Used
-Topsis-Charu-102303113
+## ✅ What is TOPSIS?
+TOPSIS is a Multi-Criteria Decision Making (MCDM) method used to rank alternatives by comparing their distance from:
+- **Ideal Best Solution**
+- **Ideal Worst Solution**
 
-## Output
-The output CSV includes:
-- Topsis Score
-- Rank
+The best alternative is the one closest to the ideal best and farthest from the ideal worst.
 
-## Result Table
-The result table is shown in the notebook after generating `output.csv`.
+---
 
-## Result Graph
-A bar graph of TOPSIS scores is plotted in the notebook.
+## ✅ Methodology (Steps)
+TOPSIS is performed using the following steps:
 
-## Author
-Charu (Roll No: 102303113)
+1. **Construct decision matrix** from input CSV  
+2. **Normalize** each criteria column:
+   \[
+   r_{ij} = \frac{x_{ij}}{\sqrt{\sum x_{ij}^2}}
+   \]
+3. **Apply weights** to the normalized matrix  
+4. **Determine ideal best and ideal worst** using impacts  
+   - `+` means higher value is better  
+   - `-` means lower value is better  
+5. **Compute distance** of each alternative from ideal best and ideal worst  
+6. **Calculate TOPSIS score**:
+   \[
+   Score = \frac{D^-}{D^+ + D^-}
+   \]
+7. **Rank alternatives** (Rank 1 = best)
+
+---
+
+## ✅ Installation (PyPI)
+```bash
+pip install Topsis-Charu-102303113
